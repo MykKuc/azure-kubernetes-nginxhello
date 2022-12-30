@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxhello-deployment
+  labels:
+    app: nginxhello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginxhello
+  template:
+    metadata:
+      labels:
+        app: nginxhello
+    spec:
+      containers:
+        - name: nginx
+          image: nginxdemos/hello:0.3
+          ports:
+            - containerPort: 80

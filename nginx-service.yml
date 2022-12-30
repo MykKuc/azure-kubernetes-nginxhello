@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginxhello-service
+  labels:
+    app: nginxhello
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginxhello
+  sessionAffinity: None
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
